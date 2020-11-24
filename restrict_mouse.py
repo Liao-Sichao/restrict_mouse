@@ -13,14 +13,25 @@ print('qを押すと終了します')
 
 try:
     while True:
+        # 位置情報を取得
         x,y = pyautogui.position()
         position = 'X:'+str(x).rjust(4) + ' Y:'+str(y).rjust(4)
+        
+        #色情報を取得
+        pixel_color = pyautogui.screenshot().getpixel((x,y))
+        position += " RGB:(" + str(pixel_color[0]).rjust(3)
+        position += "," + str(pixel_color[1]).rjust(3)
+        position += "," + str(pixel_color[0]).rjust(3) +")"
+         
         print(position,end='')
         print('\b' * (len(position)),end='',flush=True)
         
-        #mouse_pressed = pygame.mouse.get_pressed()
-        # print('\b'*len(str(r_m)),end='',flush=True)
-        
+        if pyautogui.pixelMatchesColor(x,y,(240,240,240)):
+            pyautogui.mouseUp(button="right")
+            pyautogui.mouseUp(button="left")
+            pyautogui.moveTo(rangex_f/2,rangey_f/2)
+
+        """
         if y > rangey_f: 
             #pyautogui.move(0,-100,duration=0.25)
             pyautogui.mouseUp(button="right")
@@ -39,6 +50,7 @@ try:
             pyautogui.mouseUp(button="right")
             pyautogui.mouseUp(button="left")
             pyautogui.move(100,0)
+        """
         if keyboard.is_pressed("q"):
             exit()
 
