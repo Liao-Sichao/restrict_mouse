@@ -25,20 +25,20 @@ try:
             #pyautogui.move(0,-100,duration=0.25)
             pyautogui.mouseUp(button="right")
             pyautogui.mouseUp(button="left")
-            pyautogui.move(0,-100,duration=0.25)
+            pyautogui.move(0,-100)
         if y < rangey_s: 
             pyautogui.mouseUp(button="right")
             pyautogui.mouseUp(button="left")
-            pyautogui.move(0,100,duration=0.25)
+            pyautogui.move(0,100)
             #pyautogui.mouseUp(x,rangey_s+100,duration=0.25,button="right")
         if x > rangex_f: 
             pyautogui.mouseUp(button="right")
             pyautogui.mouseUp(button="left")
-            pyautogui.move(-100,0,duration=0.25)
+            pyautogui.move(-100,0)
         if x < rangex_s: 
             pyautogui.mouseUp(button="right")
             pyautogui.mouseUp(button="left")
-            pyautogui.move(100,0,duration=0.25)
+            pyautogui.move(100,0)
         if keyboard.is_pressed("q"):
             exit()
 
